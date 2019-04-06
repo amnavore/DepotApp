@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-
   test "product attributes must not be empty" do
     product = Product.new
     assert product.invalid?
@@ -9,8 +8,9 @@ class ProductTest < ActiveSupport::TestCase
     assert product.errors[:description].any?
     assert product.errors[:price].any?
     assert product.errors[:image_url].any?
+  end
 
-    test "product price must be positive" do
+  test "product price must be positive" do
     product = Product.new(title:       "My Book Title",
                           description: "yyy",
                           image_url:   "zzz.jpg")
@@ -50,8 +50,4 @@ class ProductTest < ActiveSupport::TestCase
              "#{image_url} shouldn't be valid"
     end
   end
-
-  # test "the truth" do
-  #   assert true
-  # end
 end
